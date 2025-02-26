@@ -1,8 +1,8 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
 import { ChevronRight, GraduationCap, BookOpen, Users, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -13,17 +13,19 @@ const Index = () => {
       <nav className="fixed w-full bg-background/95 backdrop-blur-sm z-50 border-b">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <div className="font-heading font-bold text-xl">Modern College</div>
+            <Link to="/" className="font-heading font-bold text-xl">Modern College</Link>
             <div className="hidden md:flex space-x-6">
               <a href="#home" className="nav-link">Home</a>
               <a href="#programs" className="nav-link">Programs</a>
               <a href="#about" className="nav-link">About</a>
               <a href="#contact" className="nav-link">Contact</a>
             </div>
-            <Button variant="outline" className="hidden md:flex">
-              Apply Now
-              <ChevronRight className="ml-2 h-4 w-4" />
-            </Button>
+            <Link to="/apply">
+              <Button variant="outline" className="hidden md:flex">
+                Apply Now
+                <ChevronRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </nav>
@@ -39,13 +41,17 @@ const Index = () => {
               Experience excellence in education with our innovative programs and distinguished faculty.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg">
-                Explore Programs
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg">
-                Request Information
-              </Button>
+              <Link to="/programs">
+                <Button size="lg" className="text-lg w-full sm:w-auto">
+                  Explore Programs
+                  <ChevronRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link to="/request-info">
+                <Button size="lg" variant="outline" className="text-lg w-full sm:w-auto">
+                  Request Information
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

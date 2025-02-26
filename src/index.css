@@ -5,35 +5,35 @@
 
 @layer base {
   :root {
-    --background: 60 9% 98%;
-    --foreground: 24 10% 10%;
+    --background: 221 83% 98%;
+    --foreground: 222 47% 11%;
     
-    --card: 60 9% 98%;
-    --card-foreground: 24 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
     
     --popover: 0 0% 100%;
-    --popover-foreground: 24 10% 10%;
+    --popover-foreground: 222 47% 11%;
     
-    --primary: 24 9% 10%;
-    --primary-foreground: 60 9% 98%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 40% 98%;
     
-    --secondary: 25 5% 45%;
-    --secondary-foreground: 60 9% 98%;
+    --secondary: 186 83% 45%;
+    --secondary-foreground: 222 47% 11%;
     
-    --muted: 25 5% 45%;
-    --muted-foreground: 24 5% 64%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
     
-    --accent: 43 96% 40%;
-    --accent-foreground: 60 9% 98%;
+    --accent: 43 96% 56%;
+    --accent-foreground: 222 47% 11%;
     
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 60 9% 98%;
+    --destructive-foreground: 210 40% 98%;
     
-    --border: 20 5.9% 90%;
-    --input: 20 5.9% 90%;
-    --ring: 24 5.4% 63.9%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 262 83% 58%;
     
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 
   * {
@@ -41,8 +41,9 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-br from-background via-background to-secondary/10;
     font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -52,12 +53,12 @@
 
 @layer components {
   .nav-link {
-    @apply relative px-4 py-2 text-foreground hover:text-accent transition-colors duration-200;
+    @apply relative px-4 py-2 text-foreground hover:text-primary transition-colors duration-200;
   }
 
   .nav-link::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300;
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
   }
 
   .nav-link:hover::after {
@@ -65,11 +66,15 @@
   }
 
   .section-title {
-    @apply text-4xl font-semibold mb-6 text-primary;
+    @apply text-4xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-gradient-to-br from-white via-white to-background border border-secondary/20;
+  }
+
+  .stats-card {
+    @apply bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 backdrop-blur-sm border border-white/20 shadow-xl;
   }
 }
 
